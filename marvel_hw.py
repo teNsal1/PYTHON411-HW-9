@@ -37,7 +37,13 @@ def sort_by_year():
 
 # Задание 8: Сортировка по году и названию
 def sort_by_year_and_title():
-    sorted_items = sorted(full_dict.items(), key=lambda x: (x[1]['year'], x[1]['title']))
+    sorted_items = sorted(
+        full_dict.items(),
+        key=lambda x: (
+            x[1]['year'] if isinstance(x[1]['year'], int) else 0,
+            x[1]['title'] if x[1]['title'] is not None else ''
+        )
+    )
     return dict(sorted_items)
 
 # Задание 9: Однострочник
