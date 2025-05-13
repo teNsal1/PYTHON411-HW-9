@@ -39,3 +39,46 @@ def sort_by_year_and_title():
 
 # Задание 9: Однострочник (фильтр + сортировка)
 one_liner = dict(sorted(filter(lambda x: x[1]['year'] > 2020, full_dict.items()), key=lambda x: x[1]['title']))
+
+# Главная функция
+def main():
+    # Шаг 2
+    ids = process_input()
+    print("\nОбработанные ID:", ids)
+    
+    # Шаг 3
+    filtered_dict = filter_by_ids(ids)
+    pprint(filtered_dict, width=120, sort_dicts=False)
+    print("\nЗадание 3 выполнено: Отфильтрованные фильмы по ID")
+    
+    # Шаг 4
+    directors = get_unique_directors()
+    pprint(directors, width=120)
+    print("\nЗадание 4 выполнено: Уникальные режиссёры")
+    
+    # Шаг 5 (опционально)
+    year_str_dict = year_to_string()
+    pprint(year_str_dict, width=120)
+    print("\nЗадание 5 выполнено (опционально): Года как строки")
+    
+    # Шаг 6
+    ch_movies = filter_by_letter()
+    pprint(ch_movies, width=120)
+    print("\nЗадание 6 выполнено: Фильмы на букву 'Ч'")
+    
+    # Шаг 7
+    sorted_by_year = sort_by_year()
+    pprint(sorted_by_year, width=120)
+    print("\nЗадание 7 выполнено: Сортировка по году")
+    
+    # Шаг 8
+    sorted_by_year_title = sort_by_year_and_title()
+    pprint(sorted_by_year_title, width=120)
+    print("\nЗадание 8 выполнено: Сортировка по году и названию")
+    
+    # Шаг 9
+    pprint(one_liner, width=120)
+    print("\nЗадание 9 выполнено: Однострочник (фильмы после 2020, отсортированные по названию)")
+
+if __name__ == "__main__":
+    main()
