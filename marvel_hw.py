@@ -29,7 +29,10 @@ def filter_by_letter():
 
 # Задание 7: Сортировка по году
 def sort_by_year():
-    sorted_items = sorted(full_dict.items(), key=lambda x: x[1]['year'])
+    sorted_items = sorted(
+        full_dict.items(),
+        key=lambda x: x[1]['year'] if isinstance(x[1]['year'], int) else 0
+    )
     return dict(sorted_items)
 
 # Задание 8: Сортировка по году и названию
@@ -37,7 +40,7 @@ def sort_by_year_and_title():
     sorted_items = sorted(full_dict.items(), key=lambda x: (x[1]['year'], x[1]['title']))
     return dict(sorted_items)
 
-# Задание 9: Однострочник (исправлено!)
+# Задание 9: Однострочник
 one_liner = dict(sorted(
     filter(
         lambda x: isinstance(x[1]['year'], int) and x[1]['year'] > 2020,
