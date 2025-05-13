@@ -52,7 +52,7 @@ one_liner = dict(sorted(
         lambda x: isinstance(x[1]['year'], int) and x[1]['year'] > 2020,
         full_dict.items()
     ),
-    key=lambda x: x[1]['title']
+    key=lambda x: x[1]['title'] if x[1]['title'] is not None else ''
 ))
 
 
