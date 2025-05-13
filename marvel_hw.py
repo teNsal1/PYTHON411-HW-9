@@ -37,8 +37,15 @@ def sort_by_year_and_title():
     sorted_items = sorted(full_dict.items(), key=lambda x: (x[1]['year'], x[1]['title']))
     return dict(sorted_items)
 
-# Задание 9: Однострочник (фильтр + сортировка)
-one_liner = dict(sorted(filter(lambda x: x[1]['year'] > 2020, full_dict.items()), key=lambda x: x[1]['title']))
+# Задание 9: Однострочник (исправлено!)
+one_liner = dict(sorted(
+    filter(
+        lambda x: isinstance(x[1]['year'], int) and x[1]['year'] > 2020,
+        full_dict.items()
+    ),
+    key=lambda x: x[1]['title']
+))
+
 
 # Главная функция
 def main():
